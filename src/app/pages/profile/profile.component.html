@@ -1,0 +1,74 @@
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Profile</h1>
+    <p class="mb-4"></p>
+
+    <!--<editor-fold desc="Table Bus">-->
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top"
+                    src="https://awsimages.detik.net.id/visual/2020/01/06/e65a3d76-98fa-4c35-a082-b0480c00637c_169.jpeg?w=360&q=90"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" id="fullname"></h5>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">First Name</label>
+                        <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName"
+                            placeholder="details">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Phone Number</label>
+                        <input type="text" class="form-control" id="mobileNumber" [(ngModel)]="user.mobileNumber">
+                    </div>
+
+                    <button (click)="updateUser()" class="btn btn-primary">Update</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Email</label>
+                        <input readonly type="text" class="form-control" id="name" placeholder="name"
+                            [(ngModel)]="user.email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Password</label>
+                        <input required type="password" [(ngModel)]="password" class="form-control" id="password"
+                            >
+                    </div>
+                    <button (click)="updatePassword()" class="btn btn-primary" >Change Password</button>
+                </div>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+    <!--</editor-fold>-->
+
+</div>
+<!-- /.container-fluid -->

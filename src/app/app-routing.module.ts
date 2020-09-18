@@ -1,10 +1,35 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './layout/layout.component';
+import { AuthGuard } from './services/auth-guard';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./layout/layout.module').then((m) => m.LayoutModule),
+      },
+    ],
+     canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    component : PageNotFoundComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
